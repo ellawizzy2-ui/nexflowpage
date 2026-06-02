@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nexflo — Comment to DM Automation for Creators</title>
-  <meta name="description" content="Turn any comment keyword into an automatic DM. Nexflo helps small creators grow engagement and deliver free guides on autopilot." />
+  <title>Nexflo — The Creator Growth Operating System</title>
+  <meta name="description" content="Nexflo automates comment-to-DM, builds your email list, closes sales, and gives you a viral inspiration board — everything a creator needs to grow faster." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -15,6 +15,7 @@
       --brand: #6C47FF;
       --brand-light: #EDE9FF;
       --brand-dark: #4A2FD4;
+      --brand-glow: rgba(108,71,255,0.18);
       --text: #111827;
       --muted: #6B7280;
       --border: #E5E7EB;
@@ -23,383 +24,342 @@
     }
 
     html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.6;
-    }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; overflow-x: hidden; }
 
     /* ── NAV ── */
     nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(255,255,255,0.85);
-      backdrop-filter: blur(12px);
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
-      padding: 0 24px;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      padding: 0 32px; height: 62px;
+      display: flex; align-items: center; justify-content: space-between;
     }
-
-    .logo {
-      font-weight: 800;
-      font-size: 1.25rem;
-      color: var(--brand);
-      letter-spacing: -0.5px;
-    }
-
+    .logo { font-weight: 900; font-size: 1.3rem; color: var(--brand); letter-spacing: -0.5px; }
     .nav-cta {
-      background: var(--brand);
-      color: #fff;
-      border: none;
-      padding: 8px 20px;
-      border-radius: 8px;
-      font-size: 0.875rem;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.2s;
+      background: var(--brand); color: #fff; border: none;
+      padding: 9px 22px; border-radius: 9px; font-size: 0.875rem;
+      font-weight: 700; cursor: pointer; text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
     }
-    .nav-cta:hover { background: var(--brand-dark); }
+    .nav-cta:hover { background: var(--brand-dark); transform: translateY(-1px); }
 
     /* ── HERO ── */
     .hero {
-      text-align: center;
-      padding: 100px 24px 80px;
-      max-width: 780px;
-      margin: 0 auto;
+      text-align: center; padding: 110px 24px 90px;
+      max-width: 820px; margin: 0 auto;
     }
-
     .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--brand-light);
-      color: var(--brand);
-      font-size: 0.8rem;
-      font-weight: 600;
-      padding: 5px 14px;
-      border-radius: 100px;
-      margin-bottom: 24px;
-      letter-spacing: 0.3px;
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--brand-light); color: var(--brand);
+      font-size: 0.8rem; font-weight: 700; padding: 5px 16px;
+      border-radius: 100px; margin-bottom: 28px; letter-spacing: 0.3px;
     }
-
     .badge .dot {
-      width: 7px;
-      height: 7px;
-      background: var(--brand);
-      border-radius: 50%;
-      animation: pulse 1.8s infinite;
+      width: 7px; height: 7px; background: var(--brand);
+      border-radius: 50%; animation: pulse 1.8s infinite;
     }
-
     @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(1.3); }
+      0%,100% { opacity:1; transform:scale(1); }
+      50% { opacity:0.4; transform:scale(1.4); }
     }
-
     h1 {
-      font-size: clamp(2.2rem, 5vw, 3.6rem);
-      font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -1.5px;
-      color: var(--text);
-      margin-bottom: 20px;
+      font-size: clamp(2.4rem, 5.5vw, 4rem);
+      font-weight: 900; line-height: 1.1;
+      letter-spacing: -2px; color: var(--text); margin-bottom: 22px;
     }
-
     h1 span { color: var(--brand); }
-
     .hero-sub {
-      font-size: 1.1rem;
-      color: var(--muted);
-      max-width: 560px;
-      margin: 0 auto 40px;
+      font-size: 1.15rem; color: var(--muted);
+      max-width: 580px; margin: 0 auto 44px; line-height: 1.7;
     }
 
-    /* ── EMAIL FORM ── */
+    /* ── FORM ── */
     .signup-form {
-      display: flex;
-      gap: 10px;
-      max-width: 480px;
-      margin: 0 auto 14px;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: flex; gap: 10px; max-width: 500px;
+      margin: 0 auto 14px; flex-wrap: wrap; justify-content: center;
     }
-
     .signup-form input[type="email"] {
-      flex: 1;
-      min-width: 220px;
-      padding: 13px 18px;
-      border: 1.5px solid var(--border);
-      border-radius: 10px;
-      font-size: 0.95rem;
-      font-family: inherit;
-      outline: none;
-      transition: border-color 0.2s;
-      color: var(--text);
+      flex: 1; min-width: 230px; padding: 14px 20px;
+      border: 1.5px solid var(--border); border-radius: 11px;
+      font-size: 0.95rem; font-family: inherit; outline: none;
+      transition: border-color 0.2s; color: var(--text);
     }
-
     .signup-form input[type="email"]:focus {
       border-color: var(--brand);
-      box-shadow: 0 0 0 3px rgba(108,71,255,0.12);
+      box-shadow: 0 0 0 3px var(--brand-glow);
     }
-
     .signup-form button {
-      background: var(--brand);
-      color: #fff;
-      border: none;
-      padding: 13px 28px;
-      border-radius: 10px;
-      font-size: 0.95rem;
-      font-weight: 700;
-      font-family: inherit;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.15s;
-      white-space: nowrap;
+      background: var(--brand); color: #fff; border: none;
+      padding: 14px 30px; border-radius: 11px; font-size: 0.95rem;
+      font-weight: 800; font-family: inherit; cursor: pointer;
+      transition: background 0.2s, transform 0.15s; white-space: nowrap;
     }
-
     .signup-form button:hover { background: var(--brand-dark); transform: translateY(-1px); }
     .signup-form button:active { transform: translateY(0); }
-
-    .form-note {
-      font-size: 0.78rem;
-      color: var(--muted);
-    }
-
-    .success-msg {
-      display: none;
-      color: #059669;
-      font-weight: 600;
-      font-size: 0.95rem;
-      margin-top: 12px;
-    }
+    .form-note { font-size: 0.78rem; color: var(--muted); }
+    .success-msg { display: none; color: #059669; font-weight: 700; font-size: 0.95rem; margin-top: 12px; }
 
     /* ── SOCIAL PROOF ── */
     .social-proof {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 36px;
-      font-size: 0.85rem;
-      color: var(--muted);
+      display: flex; align-items: center; justify-content: center;
+      gap: 10px; margin-top: 40px; font-size: 0.85rem; color: var(--muted);
     }
-
-    .avatars {
-      display: flex;
-    }
-
+    .avatars { display: flex; }
     .avatar {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      border: 2px solid #fff;
+      width: 32px; height: 32px; border-radius: 50%; border: 2px solid #fff;
       margin-left: -8px;
       background: linear-gradient(135deg, #a78bfa, #6C47FF);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.7rem;
-      font-weight: 700;
-      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700; color: #fff;
     }
     .avatar:first-child { margin-left: 0; }
-
     .stars { color: #FBBF24; letter-spacing: -1px; }
 
-    /* ── HOW IT WORKS ── */
-    .section {
-      padding: 80px 24px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
+    /* ── SECTION SHELL ── */
+    .section { padding: 90px 24px; max-width: 1060px; margin: 0 auto; }
     .section-label {
-      text-align: center;
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--brand);
-      margin-bottom: 12px;
+      text-align: center; font-size: 0.78rem; font-weight: 800;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--brand); margin-bottom: 12px;
     }
-
     h2 {
-      text-align: center;
-      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
-      font-weight: 800;
-      letter-spacing: -0.8px;
-      margin-bottom: 16px;
+      text-align: center; font-size: clamp(1.7rem, 3.8vw, 2.6rem);
+      font-weight: 900; letter-spacing: -1px; margin-bottom: 16px;
     }
-
     .section-sub {
-      text-align: center;
-      color: var(--muted);
-      max-width: 500px;
-      margin: 0 auto 56px;
+      text-align: center; color: var(--muted);
+      max-width: 520px; margin: 0 auto 60px; line-height: 1.7;
     }
 
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-    }
-
+    /* ── HOW IT WORKS ── */
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 24px; }
     .step {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 32px 28px;
-      position: relative;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 18px; padding: 34px 30px;
       transition: box-shadow 0.2s, transform 0.2s;
     }
-
-    .step:hover {
-      box-shadow: 0 8px 30px rgba(108,71,255,0.1);
-      transform: translateY(-3px);
-    }
-
+    .step:hover { box-shadow: 0 10px 36px var(--brand-glow); transform: translateY(-4px); }
     .step-num {
-      width: 40px;
-      height: 40px;
-      background: var(--brand-light);
-      color: var(--brand);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      font-weight: 800;
-      margin-bottom: 20px;
+      width: 42px; height: 42px; background: var(--brand-light);
+      color: var(--brand); border-radius: 11px; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 1.15rem; font-weight: 900; margin-bottom: 20px;
     }
+    .step h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: 8px; }
+    .step p { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
 
-    .step h3 {
-      font-size: 1.05rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .step p {
-      font-size: 0.9rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    /* ── FEATURES ── */
-    .features-bg {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-
+    /* ── CORE FEATURES ── */
+    .features-bg { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px,1fr)); gap: 20px; }
     .feature {
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-      padding: 24px;
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 14px;
+      display: flex; gap: 16px; align-items: flex-start;
+      padding: 26px; background: #fff;
+      border: 1px solid var(--border); border-radius: 15px;
+      transition: box-shadow 0.2s, transform 0.2s;
     }
-
+    .feature:hover { box-shadow: 0 6px 24px var(--brand-glow); transform: translateY(-2px); }
     .feature-icon {
-      width: 44px;
-      height: 44px;
-      background: var(--brand-light);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-      flex-shrink: 0;
+      width: 46px; height: 46px; background: var(--brand-light);
+      border-radius: 11px; display: flex; align-items: center;
+      justify-content: center; font-size: 1.35rem; flex-shrink: 0;
     }
+    .feature-text h3 { font-size: 0.95rem; font-weight: 800; margin-bottom: 5px; }
+    .feature-text p { font-size: 0.84rem; color: var(--muted); line-height: 1.55; }
 
-    .feature-text h3 {
-      font-size: 0.95rem;
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-
-    .feature-text p {
-      font-size: 0.85rem;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
-    /* ── CTA SECTION ── */
-    .cta-section {
-      text-align: center;
+    /* ── INSPIRATION BOARD SECTION ── */
+    .inspo-section {
+      background: #0D0B1E;
       padding: 100px 24px;
+      overflow: hidden;
+    }
+    .inspo-inner { max-width: 1060px; margin: 0 auto; }
+    .inspo-section .section-label { color: #a78bfa; }
+    .inspo-section h2 { color: #fff; }
+    .inspo-section .section-sub { color: rgba(255,255,255,0.55); }
+
+    .inspo-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
     }
 
+    /* Board mockup */
+    .board-mockup {
+      background: #161228;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+    }
+    .board-topbar {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 16px;
+    }
+    .board-topbar-dot { width: 11px; height: 11px; border-radius: 50%; }
+    .board-search {
+      flex: 1; background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px; padding: 7px 14px;
+      font-size: 0.78rem; color: rgba(255,255,255,0.4);
+      font-family: inherit;
+    }
+    .board-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 10px;
+    }
+    .board-card {
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .board-card:hover { transform: scale(1.03); }
+    .board-card-thumb {
+      width: 100%; aspect-ratio: 9/14;
+      display: flex; align-items: flex-end;
+      padding: 10px 8px;
+      position: relative;
+    }
+    .board-card-thumb::after {
+      content:'';
+      position: absolute; inset:0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+    }
+    .bc1 { background: linear-gradient(135deg,#FF6B6B,#FF8E53); }
+    .bc2 { background: linear-gradient(135deg,#4ECDC4,#44A08D); }
+    .bc3 { background: linear-gradient(135deg,#A18CD1,#FBC2EB); }
+    .bc4 { background: linear-gradient(135deg,#F093FB,#F5576C); }
+    .bc5 { background: linear-gradient(135deg,#4FACFE,#00F2FE); }
+    .bc6 { background: linear-gradient(135deg,#43E97B,#38F9D7); }
+    .bc7 { background: linear-gradient(135deg,#FA709A,#FEE140); }
+    .bc8 { background: linear-gradient(135deg,#667EEA,#764BA2); }
+    .bc9 { background: linear-gradient(135deg,#F7971E,#FFD200); }
+    .board-card-label {
+      position: relative; z-index: 1;
+      font-size: 0.62rem; font-weight: 700;
+      color: #fff; line-height: 1.3;
+    }
+    .board-card-stat {
+      position: absolute; top: 7px; right: 7px; z-index: 1;
+      background: rgba(0,0,0,0.55);
+      border-radius: 6px; padding: 3px 7px;
+      font-size: 0.58rem; font-weight: 700; color: #fff;
+    }
+    .board-card-save {
+      position: absolute; top: 7px; left: 7px; z-index: 1;
+      width: 22px; height: 22px;
+      background: rgba(108,71,255,0.85);
+      border-radius: 6px; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.65rem;
+    }
+    .board-tabs {
+      display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap;
+    }
+    .board-tab {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px; padding: 4px 12px;
+      font-size: 0.7rem; color: rgba(255,255,255,0.6);
+      font-family: inherit; cursor: pointer; transition: all 0.2s;
+    }
+    .board-tab.active {
+      background: var(--brand); border-color: var(--brand);
+      color: #fff;
+    }
+
+    /* Inspo text side */
+    .inspo-text { color: #fff; }
+    .inspo-text h3 { font-size: 1.9rem; font-weight: 900; letter-spacing: -0.8px; margin-bottom: 18px; line-height: 1.2; }
+    .inspo-text p { color: rgba(255,255,255,0.6); font-size: 1rem; line-height: 1.75; margin-bottom: 28px; }
+    .inspo-pills { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
+    .inspo-pill {
+      display: flex; align-items: center; gap: 7px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 100px; padding: 7px 16px;
+      font-size: 0.82rem; font-weight: 600; color: rgba(255,255,255,0.8);
+    }
+    .inspo-pill span { font-size: 1rem; }
+
+    /* ── UNIQUE FEATURES (DIFFERENTIATORS) ── */
+    .diff-section { padding: 100px 24px; max-width: 1060px; margin: 0 auto; }
+    .diff-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+      gap: 24px;
+      margin-top: 60px;
+    }
+    .diff-card {
+      border: 1px solid var(--border);
+      border-radius: 20px; padding: 32px 28px;
+      position: relative; overflow: hidden;
+      transition: box-shadow 0.2s, transform 0.2s;
+      background: #fff;
+    }
+    .diff-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--brand), #9B72FF);
+      border-radius: 20px 20px 0 0;
+    }
+    .diff-card:hover { box-shadow: 0 12px 40px var(--brand-glow); transform: translateY(-4px); }
+    .diff-tag {
+      display: inline-block;
+      background: var(--brand-light); color: var(--brand);
+      font-size: 0.68rem; font-weight: 800; letter-spacing: 1px;
+      text-transform: uppercase; padding: 4px 10px;
+      border-radius: 6px; margin-bottom: 16px;
+    }
+    .diff-card h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 10px; }
+    .diff-card p { font-size: 0.87rem; color: var(--muted); line-height: 1.65; }
+    .diff-icon { font-size: 2rem; margin-bottom: 14px; display: block; }
+
+    /* ── CTA ── */
+    .cta-section { text-align: center; padding: 100px 24px; }
     .cta-box {
-      background: linear-gradient(135deg, #6C47FF 0%, #9B72FF 100%);
-      border-radius: 24px;
-      padding: 64px 32px;
-      max-width: 680px;
-      margin: 0 auto;
-      color: #fff;
+      background: linear-gradient(135deg, #5B32EE 0%, #9B72FF 100%);
+      border-radius: 28px; padding: 72px 36px;
+      max-width: 700px; margin: 0 auto; color: #fff;
+      box-shadow: 0 24px 80px rgba(108,71,255,0.3);
     }
-
-    .cta-box h2 {
-      color: #fff;
-      margin-bottom: 12px;
-    }
-
-    .cta-box p {
-      color: rgba(255,255,255,0.8);
-      margin-bottom: 36px;
-      font-size: 1rem;
-    }
-
+    .cta-box h2 { color: #fff; margin-bottom: 14px; }
+    .cta-box p { color: rgba(255,255,255,0.78); margin-bottom: 40px; font-size: 1.05rem; }
     .cta-box .signup-form input[type="email"] {
-      background: rgba(255,255,255,0.15);
-      border-color: rgba(255,255,255,0.3);
-      color: #fff;
+      background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.3); color: #fff;
     }
-
-    .cta-box .signup-form input[type="email"]::placeholder { color: rgba(255,255,255,0.6); }
-
+    .cta-box .signup-form input[type="email"]::placeholder { color: rgba(255,255,255,0.55); }
     .cta-box .signup-form input[type="email"]:focus {
       border-color: rgba(255,255,255,0.7);
       box-shadow: 0 0 0 3px rgba(255,255,255,0.15);
     }
-
-    .cta-box .signup-form button {
-      background: #fff;
-      color: var(--brand);
-    }
-
+    .cta-box .signup-form button { background: #fff; color: var(--brand); }
     .cta-box .signup-form button:hover { background: #EDE9FF; }
-
-    .cta-box .form-note { color: rgba(255,255,255,0.6); }
+    .cta-box .form-note { color: rgba(255,255,255,0.55); }
 
     /* ── FOOTER ── */
     footer {
       border-top: 1px solid var(--border);
-      padding: 28px 24px;
-      text-align: center;
-      font-size: 0.82rem;
-      color: var(--muted);
+      padding: 30px 24px; text-align: center;
+      font-size: 0.82rem; color: var(--muted);
     }
-
-    footer span { color: var(--brand); font-weight: 600; }
+    footer span { color: var(--brand); font-weight: 700; }
 
     /* ── RESPONSIVE ── */
+    @media (max-width: 720px) {
+      .inspo-layout { grid-template-columns: 1fr; }
+      .inspo-text { order: -1; }
+      .board-grid { grid-template-columns: repeat(3,1fr); }
+    }
     @media (max-width: 500px) {
       .signup-form { flex-direction: column; }
-      .signup-form input[type="email"],
-      .signup-form button { width: 100%; }
+      .signup-form input[type="email"], .signup-form button { width: 100%; }
+      h1 { letter-spacing: -1px; }
     }
   </style>
 </head>
@@ -414,23 +374,16 @@
   <!-- HERO -->
   <section class="hero">
     <div class="badge"><span class="dot"></span> Coming Soon</div>
-    <h1>Every Comment Is<br /><span>Value. Growth. Engagement.</span></h1>
+    <h1>The Creator Growth<br /><span>Operating System</span></h1>
     <p class="hero-sub">
-      Nexflo helps creators farm real engagement by making sure every single follower gets value — automatically. Grow your page faster than ever, on autopilot.
+      Nexflo is more than DM automation. Find viral content, get inspired, post your version, then watch Nexflo turn every comment into a sale — on autopilot.
     </p>
-
-    <form
-      class="signup-form"
-      action="https://formspree.io/f/xeedgrdb"
-      method="POST"
-      id="hero-form"
-    >
+    <form class="signup-form" id="hero-form">
       <input type="email" name="email" placeholder="Enter your email address" required />
       <button type="submit">Notify Me</button>
     </form>
     <p class="form-note">No spam. Just your early access invite when we launch.</p>
-    <p class="success-msg" id="hero-success">You're on the list! We'll be in touch soon.</p>
-
+    <p class="success-msg" id="hero-success">You're on the list! We'll be in touch soon. 🎉</p>
     <div class="social-proof">
       <div class="avatars">
         <div class="avatar">JK</div>
@@ -448,97 +401,253 @@
     <p class="section-label">How It Works</p>
     <h2>Farm engagement while you sleep</h2>
     <p class="section-sub">Set it up once and every comment becomes a conversation — giving your audience value and growing your page on autopilot.</p>
-
     <div class="steps">
       <div class="step">
         <div class="step-num">1</div>
         <h3>Set Your Keyword</h3>
-        <p>Choose a trigger word — like "FREE" or "GUIDE" — that viewers will comment on your video to unlock your offer.</p>
+        <p>Choose a trigger word — like "FREE" or "GUIDE" — that viewers comment on your video to unlock your offer.</p>
       </div>
       <div class="step">
         <div class="step-num">2</div>
         <h3>Upload Your Freebie</h3>
-        <p>Drop in a PDF, e-book, or link to a free resource you want to send. Nexflo stores it and attaches it automatically.</p>
+        <p>Drop in a PDF, e-book, or link to a free resource. Nexflo stores it and sends it automatically via DM.</p>
       </div>
       <div class="step">
         <div class="step-num">3</div>
         <h3>Go Viral</h3>
-        <p>More engagement signals push your content to more people. The more comments you get, the more the algorithm works in your favor — Nexflo turns engagement into growth.</p>
+        <p>More engagement signals push your content further. The more comments you get, the harder the algorithm works for you — Nexflo turns engagement into growth.</p>
       </div>
     </div>
   </section>
 
-  <!-- FEATURES -->
+  <!-- CORE FEATURES -->
   <div class="features-bg">
     <section class="section">
       <p class="section-label">Features</p>
       <h2>Built for creators who are serious about growth</h2>
       <p class="section-sub">Every follower gets value, every comment drives engagement, and your page grows faster than ever — without extra effort.</p>
-
       <div class="features">
         <div class="feature">
           <div class="feature-icon">💬</div>
           <div class="feature-text">
             <h3>Automated Sales Conversations</h3>
-            <p>Nexflo handles DM conversations for you — qualifying leads, pitching offers, and closing sales while you're busy creating.</p>
+            <p>Nexflo handles DM conversations — qualifying leads, pitching offers, and closing sales while you create.</p>
           </div>
         </div>
         <div class="feature">
           <div class="feature-icon">📧</div>
           <div class="feature-text">
             <h3>Email List Building</h3>
-            <p>Every DM interaction is an opportunity to collect emails. Nexflo captures and grows your list automatically from your comments.</p>
+            <p>Every DM interaction captures an email automatically. Build your list from comments without lifting a finger.</p>
           </div>
         </div>
         <div class="feature">
           <div class="feature-icon">📄</div>
           <div class="feature-text">
             <h3>PDF & Link Sharing</h3>
-            <p>Send guides, PDFs, checklists, or any link automatically with each DM.</p>
+            <p>Send guides, PDFs, checklists, or any link automatically with each triggered DM.</p>
           </div>
         </div>
         <div class="feature">
           <div class="feature-icon">📊</div>
           <div class="feature-text">
             <h3>Engagement Analytics</h3>
-            <p>Track how many comments triggered DMs and monitor your growth over time.</p>
+            <p>See exactly which content drives DMs, clicks, and revenue — not just likes and views.</p>
           </div>
         </div>
         <div class="feature">
           <div class="feature-icon">🔒</div>
           <div class="feature-text">
             <h3>Safe & Compliant</h3>
-            <p>Built within platform guidelines so your account stays safe while you scale.</p>
+            <p>Built within platform guidelines so your account stays protected while you scale.</p>
           </div>
         </div>
         <div class="feature">
           <div class="feature-icon">🚀</div>
           <div class="feature-text">
             <h3>5-Minute Setup</h3>
-            <p>Connect your account, set your keyword, and go live in under five minutes.</p>
+            <p>Connect your account, set your keyword, and go live in under five minutes — no tech skills needed.</p>
           </div>
         </div>
       </div>
     </section>
   </div>
 
+  <!-- VIRAL INSPIRATION BOARD -->
+  <div class="inspo-section">
+    <div class="inspo-inner">
+      <p class="section-label">Viral Inspiration Board</p>
+      <h2 style="color:#fff; margin-bottom:14px;">Your personal viral video library</h2>
+      <p class="section-sub" style="margin-bottom:60px;">Discover what's blowing up in your niche, save it to your board like Pinterest, study the hook — then post your version and let Nexflo automate the DMs the moment it hits.</p>
+
+      <div class="inspo-layout">
+
+        <!-- BOARD MOCKUP -->
+        <div class="board-mockup">
+          <div class="board-topbar">
+            <div class="board-topbar-dot" style="background:#FF5F57;"></div>
+            <div class="board-topbar-dot" style="background:#FEBC2E;"></div>
+            <div class="board-topbar-dot" style="background:#28C840;"></div>
+            <div class="board-search">Search your niche — fitness, finance, beauty…</div>
+          </div>
+          <div class="board-tabs">
+            <button class="board-tab active">🔥 Trending</button>
+            <button class="board-tab">📌 Saved</button>
+            <button class="board-tab">🎵 Audios</button>
+            <button class="board-tab">🪝 Hooks</button>
+          </div>
+          <div class="board-grid">
+            <div class="board-card">
+              <div class="board-card-thumb bc1">
+                <div class="board-card-save">📌</div>
+                <div class="board-card-stat">2.4M</div>
+                <div class="board-card-label">Morning routine hook</div>
+              </div>
+            </div>
+            <div class="board-card">
+              <div class="board-card-thumb bc2">
+                <div class="board-card-save">📌</div>
+                <div class="board-card-stat">1.1M</div>
+                <div class="board-card-label">Finance tip format</div>
+              </div>
+            </div>
+            <div class="board-card">
+              <div class="board-card-thumb bc3">
+                <div class="board-card-save">📌</div>
+                <div class="board-card-stat">890K</div>
+                <div class="board-card-label">Outfit transition</div>
+              </div>
+            </div>
+            <div class="board-card">
+              <div class="board-card-thumb bc4">
+                <div class="board-card-save">📌</div>
+                <div class="board-card-stat">3.2M</div>
+                <div class="board-card-label">POV story open</div>
+              </div>
+            </div>
+            <div class="board-card">
+              <div class="board-card-thumb bc5">
+                <div class="board-card-save">📌</div>
+                <div class="board-card-stat">670K</div>
+                <div class="board-card-label">Tutorial walkthrough</div>
+              </div>
+            </div>
+            <div class="board-card">
+              <div class="board-card-thumb bc6">
+                <div class="board-card-save">📌</div>
+                <div class="board-card-stat">1.8M</div>
+                <div class="board-card-label">Before & after reveal</div>
+              </div>
+            </div>
+            <div class="board-card">
+              <div class="board-card-thumb bc7">
+                <div class="board-card-save">📌</div>
+                <div class="board-card-stat">540K</div>
+                <div class="board-card-label">Day in my life vlog</div>
+              </div>
+            </div>
+            <div class="board-card">
+              <div class="board-card-thumb bc8">
+                <div class="board-card-save">📌</div>
+                <div class="board-card-stat">2.1M</div>
+                <div class="board-card-label">Mindset quote reel</div>
+              </div>
+            </div>
+            <div class="board-card">
+              <div class="board-card-thumb bc9">
+                <div class="board-card-save">📌</div>
+                <div class="board-card-stat">990K</div>
+                <div class="board-card-label">Product unboxing</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TEXT SIDE -->
+        <div class="inspo-text">
+          <h3>Stop scrolling for hours.<br />Find what works in seconds.</h3>
+          <p>The Viral Inspiration Board is like Pinterest but built for creators who want to grow. Discover viral videos in your niche, save them into custom boards, analyse the hooks, and post your own version — then instantly attach a Nexflo automation to capture every comment.</p>
+          <div class="inspo-pills">
+            <div class="inspo-pill"><span>🔥</span> Trending video discovery</div>
+            <div class="inspo-pill"><span>📌</span> Save to custom boards</div>
+            <div class="inspo-pill"><span>🪝</span> Hook analyser</div>
+            <div class="inspo-pill"><span>🔔</span> Trend alerts before they peak</div>
+            <div class="inspo-pill"><span>⚡</span> One-click attach automation</div>
+            <div class="inspo-pill"><span>🎵</span> Trending audio tracker</div>
+          </div>
+          <p style="font-size:0.88rem; color:rgba(255,255,255,0.4);">
+            Discover → Get Inspired → Post Your Version → Automate the DMs → Watch it grow.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT MAKES NEXFLO DIFFERENT -->
+  <div class="diff-section">
+    <p class="section-label">Only on Nexflo</p>
+    <h2>Features no other tool has</h2>
+    <p class="section-sub">We didn't build another ManyChat clone. These are the features that will make creators switch and never look back.</p>
+
+    <div class="diff-grid">
+
+      <div class="diff-card">
+        <span class="diff-icon">🔥</span>
+        <div class="diff-tag">Unique</div>
+        <h3>Heat Score — Know Who's Ready to Buy</h3>
+        <p>Every person in your DM pipeline gets a live score from 1–100 based on their behaviour. Multiple comments, link clicks, buying words like "how much?" — hot leads get sent directly to a sales flow. Cold leads get nurtured. No guessing.</p>
+      </div>
+
+      <div class="diff-card">
+        <span class="diff-icon">⚡</span>
+        <div class="diff-tag">Unique</div>
+        <h3>Viral Backfill Queue — No Comment Left Behind</h3>
+        <p>When your post blows up, every other tool hits API limits and silently drops thousands of comments. Nexflo queues every single one and works through the backlog — so when you go viral, you capture 100% of it.</p>
+      </div>
+
+      <div class="diff-card">
+        <span class="diff-icon">📅</span>
+        <div class="diff-tag">Unique</div>
+        <h3>DM-Native Course Drip</h3>
+        <p>Turn one comment keyword into a 5–7 day mini-course delivered entirely through DMs. Day 1, Day 3, Day 5 — each message personalised based on how they reply. DM open rates hit 80–95% vs email's 20%. This replaces Mailchimp for free.</p>
+      </div>
+
+      <div class="diff-card">
+        <span class="diff-icon">🔁</span>
+        <div class="diff-tag">Unique</div>
+        <h3>DM Referral Engine</h3>
+        <p>After someone engages, Nexflo automatically DMs them: "Share this post and tag me — I'll send you an exclusive bonus." Every referrer gets a unique tracking link. You get a leaderboard of your top advocates. Word-of-mouth on autopilot.</p>
+      </div>
+
+      <div class="diff-card">
+        <span class="diff-icon">📊</span>
+        <div class="diff-tag">Unique</div>
+        <h3>Content-to-Revenue Attribution</h3>
+        <p>Every post gets a revenue card: "This Reel → 342 DM leads → 89 clicks → 12 sales → $480." Finally know which content actually makes you money — not just which one got the most views.</p>
+      </div>
+
+      <div class="diff-card">
+        <span class="diff-icon">🧠</span>
+        <div class="diff-tag">Unique</div>
+        <h3>Objection-Aware AI Sales Closer</h3>
+        <p>When someone DMs back "is it worth it?" or "I can't afford it right now" — Nexflo's AI reads the objection and responds with a personalised reply trained on your own product copy. A 24/7 sales closer that lives in your DMs.</p>
+      </div>
+
+    </div>
+  </div>
+
   <!-- CTA -->
   <section class="cta-section" id="early-access">
     <div class="cta-box">
       <h2>Join the creators growing faster than ever</h2>
-      <p>Be first in line when we launch. Farm more engagement, deliver more value, and grow your page like never before — starting day one.</p>
-
-      <form
-        class="signup-form"
-        action="https://formspree.io/f/xeedgrdb"
-        method="POST"
-        id="cta-form"
-      >
+      <p>Be first in line when we launch. The inspiration board, the automation, the AI closer — all in one place. Starting day one.</p>
+      <form class="signup-form" id="cta-form">
         <input type="email" name="email" placeholder="your@email.com" required />
         <button type="submit">Get Early Access</button>
       </form>
       <p class="form-note">Free to join. No card required.</p>
-      <p class="success-msg" id="cta-success" style="color:#c4b5fd;">You're on the list! We'll be in touch soon.</p>
+      <p class="success-msg" id="cta-success" style="color:#c4b5fd;">You're on the list! We'll be in touch soon. 🎉</p>
     </div>
   </section>
 
@@ -586,6 +695,14 @@
 
     handleForm('hero-form', 'hero-success');
     handleForm('cta-form', 'cta-success');
+
+    // Board tab interaction
+    document.querySelectorAll('.board-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.board-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+      });
+    });
   </script>
 
 </body>
