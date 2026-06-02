@@ -286,6 +286,98 @@
     }
     .inspo-pill span { font-size: 1rem; }
 
+    /* ── 4-STEP FLOW ── */
+    .four-steps { display: flex; flex-direction: column; gap: 0; max-width: 700px; margin: 0 auto; }
+    .four-step { display: flex; gap: 0; align-items: stretch; }
+    .four-step-num {
+      width: 48px; height: 48px; min-width: 48px;
+      background: var(--brand); color: #fff;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; font-weight: 900; z-index: 1;
+      box-shadow: 0 0 0 4px var(--brand-light);
+      margin-top: 4px;
+    }
+    .four-step-line {
+      width: 2px; background: linear-gradient(to bottom, var(--brand), var(--brand-light));
+      margin: 0 23px; min-height: 40px; flex-shrink: 0;
+    }
+    .four-step-line.last { background: transparent; }
+    .four-step-body {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; padding: 26px 28px; flex: 1;
+      margin-bottom: 16px; margin-left: 16px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .four-step-body:hover { box-shadow: 0 8px 28px var(--brand-glow); transform: translateY(-2px); }
+    .four-step-icon { font-size: 1.6rem; margin-bottom: 10px; }
+    .four-step-body h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: 8px; color: var(--text); }
+    .four-step-body p { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── BOARD ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes commentPop {
+      0%   { opacity: 0; transform: scale(0.7) translateY(6px); }
+      60%  { opacity: 1; transform: scale(1.05) translateY(-2px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    @keyframes dmSlide {
+      0%   { opacity: 0; transform: translateX(20px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes arrowPulse {
+      0%,100% { transform: translateX(0); opacity: 0.7; }
+      50%      { transform: translateX(4px); opacity: 1; }
+    }
+    @keyframes floatCard {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-6px); }
+    }
+    .board-card:nth-child(1) { animation: fadeUp 0.5s ease 0.1s both; }
+    .board-card:nth-child(2) { animation: fadeUp 0.5s ease 0.2s both; }
+    .board-card:nth-child(3) { animation: fadeUp 0.5s ease 0.3s both; }
+    .board-card:nth-child(4) { animation: fadeUp 0.5s ease 0.4s both; }
+    .board-card:nth-child(5) { animation: fadeUp 0.5s ease 0.5s both; }
+    .board-card:nth-child(6) { animation: fadeUp 0.5s ease 0.6s both; }
+    .board-card:nth-child(7) { animation: fadeUp 0.5s ease 0.35s both; }
+    .board-card:nth-child(8) { animation: fadeUp 0.5s ease 0.45s both; }
+    .board-card:nth-child(9) { animation: fadeUp 0.5s ease 0.55s both; }
+
+    /* Comment-to-DM live demo */
+    .cdm-demo {
+      margin-top: 20px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      padding: 16px;
+    }
+    .cdm-demo-label {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 1.2px;
+      text-transform: uppercase; color: #a78bfa; margin-bottom: 12px;
+    }
+    .cdm-row {
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    }
+    .cdm-comment {
+      background: rgba(255,255,255,0.08); border-radius: 10px;
+      padding: 8px 12px; font-size: 0.75rem; color: #fff;
+      animation: commentPop 0.6s ease 1s both;
+    }
+    .cdm-comment strong { color: #a78bfa; }
+    .cdm-arrow {
+      color: #a78bfa; font-size: 1rem;
+      animation: arrowPulse 1.2s ease infinite;
+    }
+    .cdm-dm {
+      background: linear-gradient(135deg, var(--brand), #9B72FF);
+      border-radius: 10px; padding: 8px 12px;
+      font-size: 0.75rem; color: #fff;
+      animation: dmSlide 0.6s ease 1.8s both;
+    }
+    .cdm-dm strong { opacity: 0.8; font-size: 0.68rem; display: block; margin-bottom: 2px; }
+
     /* ── UNIQUE FEATURES (DIFFERENTIATORS) ── */
     .diff-section { padding: 100px 24px; max-width: 1060px; margin: 0 auto; }
     .diff-grid {
@@ -376,7 +468,7 @@
     <div class="badge"><span class="dot"></span> Coming Soon</div>
     <h1>The Creator Growth<br /><span>Operating System</span></h1>
     <p class="hero-sub">
-      Post your video. When someone comments a keyword, Nexflo automatically sends them your freebie, grows your email list, and closes sales — all while you keep creating.
+      Find viral trends and formats that work in your niche, then use our comment to DM feature to automate engagement, go viral and build a real audience faster.
     </p>
     <form class="signup-form" id="hero-form">
       <input type="email" name="email" placeholder="Enter your email address" required />
@@ -396,82 +488,50 @@
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
-  <section class="section">
-    <p class="section-label">How It Works</p>
-    <h2>How it works in 3 steps</h2>
-    <p class="section-sub">Set it up once in under 5 minutes. After that, Nexflo runs everything automatically — every day, for every video.</p>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <h3>Pick a Keyword</h3>
-        <p>Choose a trigger word like "FREE" or "GUIDE." When someone comments that word on your video, Nexflo immediately gets to work.</p>
+  <!-- 4-STEP FLOW -->
+  <section class="section steps-section">
+    <p class="section-label">How Nexflo Works</p>
+    <h2>Four steps to growing faster than everyone else</h2>
+    <p class="section-sub">No complicated setup. No guesswork. Just a simple system that works while you create.</p>
+    <div class="four-steps">
+      <div class="four-step">
+        <div class="four-step-num">1</div>
+        <div class="four-step-line"></div>
+        <div class="four-step-body">
+          <div class="four-step-icon">🔍</div>
+          <h3>Search Viral Trends in Your Niche</h3>
+          <p>Nexflo shows you exactly what is blowing up in your niche right now — so you always know what to post next.</p>
+        </div>
       </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <h3>Upload Your Freebie</h3>
-        <p>Add the PDF, guide, or link you want to send. Nexflo stores it and delivers it automatically to everyone who triggers it.</p>
+      <div class="four-step">
+        <div class="four-step-num">2</div>
+        <div class="four-step-line"></div>
+        <div class="four-step-body">
+          <div class="four-step-icon">🪝</div>
+          <h3>Copy Hooks and Formats That Have Proven to Work</h3>
+          <p>Save the styles, hooks, and formats that already went viral. Post your version with your own spin on it.</p>
+        </div>
       </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <h3>Grow on Autopilot</h3>
-        <p>More comments push your video to more people. More people means more followers, more emails, more sales. You just keep creating.</p>
+      <div class="four-step">
+        <div class="four-step-num">3</div>
+        <div class="four-step-line"></div>
+        <div class="four-step-body">
+          <div class="four-step-icon">💬</div>
+          <h3>Use Comment to DM to Automate Engagement and Sales</h3>
+          <p>Set a keyword. When someone comments it, Nexflo instantly sends them a DM with your freebie or offer — building your email list and closing sales automatically.</p>
+        </div>
+      </div>
+      <div class="four-step">
+        <div class="four-step-num">4</div>
+        <div class="four-step-line last"></div>
+        <div class="four-step-body">
+          <div class="four-step-icon">🏆</div>
+          <h3>Build Your Brand and Make Money</h3>
+          <p>More engagement pushes your content to more people. More people means a bigger audience, a bigger email list, and real income from your content.</p>
+        </div>
       </div>
     </div>
   </section>
-
-  <!-- CORE FEATURES -->
-  <div class="features-bg">
-    <section class="section">
-      <p class="section-label">Features</p>
-      <h2>Built for creators who are serious about growth</h2>
-      <p class="section-sub">You post the video. Nexflo handles everything else — automatically, every day, for every follower.</p>
-      <div class="features">
-        <div class="feature">
-          <div class="feature-icon">💬</div>
-          <div class="feature-text">
-            <h3>Automated Sales in DMs</h3>
-            <p>Nexflo chats with your followers, answers their questions, and closes sales for you — even when you are offline or busy making content.</p>
-          </div>
-        </div>
-        <div class="feature">
-          <div class="feature-icon">📧</div>
-          <div class="feature-text">
-            <h3>Email List That Builds Itself</h3>
-            <p>Every DM Nexflo sends quietly collects an email address. No sign-up forms, no effort. Your list grows every time someone comments.</p>
-          </div>
-        </div>
-        <div class="feature">
-          <div class="feature-icon">📄</div>
-          <div class="feature-text">
-            <h3>Instant Freebie Delivery</h3>
-            <p>Nexflo sends your PDF, guide, or link to every person who comments your keyword — instantly, automatically, every single time.</p>
-          </div>
-        </div>
-        <div class="feature">
-          <div class="feature-icon">📊</div>
-          <div class="feature-text">
-            <h3>See What Is Actually Working</h3>
-            <p>Nexflo shows you which videos got the most DMs, clicks, and sales — so you know exactly what type of content to make more of.</p>
-          </div>
-        </div>
-        <div class="feature">
-          <div class="feature-icon">🔒</div>
-          <div class="feature-text">
-            <h3>Your Account Stays Safe</h3>
-            <p>Nexflo follows every platform rule so your account never gets flagged or banned. Grow as big as you want — safely.</p>
-          </div>
-        </div>
-        <div class="feature">
-          <div class="feature-icon">🚀</div>
-          <div class="feature-text">
-            <h3>Ready in 5 Minutes</h3>
-            <p>Connect your account, set your keyword, upload your freebie — and you are live. No tech skills needed whatsoever.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
 
   <!-- VIRAL INSPIRATION BOARD -->
   <div class="inspo-section">
@@ -575,9 +635,19 @@
             <div class="inspo-pill"><span>⚡</span> Attach DM automation in one click</div>
             <div class="inspo-pill"><span>🎵</span> Discover trending sounds</div>
           </div>
-          <p style="font-size:0.88rem; color:rgba(255,255,255,0.4);">
+          <p style="font-size:0.88rem; color:rgba(255,255,255,0.4); margin-bottom: 20px;">
             Find it — Get inspired — Post your version — Nexflo handles the rest
           </p>
+
+          <!-- LIVE COMMENT TO DM DEMO -->
+          <div class="cdm-demo">
+            <div class="cdm-demo-label">Comment to DM — Live</div>
+            <div class="cdm-row">
+              <div class="cdm-comment"><strong>@sarah_creates</strong> commented: "FREE"</div>
+              <div class="cdm-arrow">→</div>
+              <div class="cdm-dm"><strong>Nexflo sent a DM instantly</strong> "Hey! Here's your free guide 👇 nexflo.link/guide"</div>
+            </div>
+          </div>
         </div>
 
       </div>
