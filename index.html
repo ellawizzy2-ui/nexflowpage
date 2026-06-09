@@ -674,6 +674,9 @@
   </footer>
 
   <script>
+    const BREVO_KEY = '__BREVO_KEY__';
+    const LIST_ID = 3;
+
     function handleForm(formId, successId) {
       const form = document.getElementById(formId);
       if (!form) return;
@@ -684,12 +687,16 @@
         btn.textContent = 'Sending…';
         btn.disabled = true;
         try {
-          const res = await fetch('https://formspree.io/f/xeedgrdb', {
+          const res = await fetch('https://api.brevo.com/v3/contacts', {
             method: 'POST',
-            headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email: email })
+            headers: {
+              'accept': 'application/json',
+              'content-type': 'application/json',
+              'api-key': BREVO_KEY
+            },
+            body: JSON.stringify({ email: email, listIds: [LIST_ID], updateEnabled: true })
           });
-          if (res.ok) {
+          if (res.ok || res.status === 204) {
             form.style.display = 'none';
             document.getElementById(successId).style.display = 'block';
           } else {
