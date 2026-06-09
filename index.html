@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexflo — The Creator Growth Operating System</title>
+  <meta name="description" content="When someone comments a keyword on your video, Nexflo automatically sends them a DM, builds your email list, and closes sales — all while you keep creating." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --brand: #6C47FF;
+      --brand-light: #EDE9FF;
+      --brand-dark: #4A2FD4;
+      --brand-glow: rgba(108,71,255,0.18);
+      --text: #111827;
+      --muted: #6B7280;
+      --border: #E5E7EB;
+      --bg: #FFFFFF;
+      --surface: #F9FAFB;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; overflow-x: hidden; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 32px; height: 62px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo { font-weight: 900; font-size: 1.3rem; color: var(--brand); letter-spacing: -0.5px; }
+    .nav-cta {
+      background: var(--brand); color: #fff; border: none;
+      padding: 9px 22px; border-radius: 9px; font-size: 0.875rem;
+      font-weight: 700; cursor: pointer; text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .nav-cta:hover { background: var(--brand-dark); transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center; padding: 110px 24px 90px;
+      max-width: 820px; margin: 0 auto;
+    }
+    .badge {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--brand-light); color: var(--brand);
+      font-size: 0.8rem; font-weight: 700; padding: 5px 16px;
+      border-radius: 100px; margin-bottom: 28px; letter-spacing: 0.3px;
+    }
+    .badge .dot {
+      width: 7px; height: 7px; background: var(--brand);
+      border-radius: 50%; animation: pulse 1.8s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity:1; transform:scale(1); }
+      50% { opacity:0.4; transform:scale(1.4); }
+    }
+    h1 {
+      font-size: clamp(2.4rem, 5.5vw, 4rem);
+      font-weight: 900; line-height: 1.1;
+      letter-spacing: -2px; color: var(--text); margin-bottom: 22px;
+    }
+    h1 span { color: var(--brand); }
+    .hero-sub {
+      font-size: 1.15rem; color: var(--muted);
+      max-width: 580px; margin: 0 auto 44px; line-height: 1.7;
+    }
+
+    /* ── FORM ── */
+    .signup-form {
+      display: flex; gap: 10px; max-width: 500px;
+      margin: 0 auto 14px; flex-wrap: wrap; justify-content: center;
+    }
+    .signup-form input[type="email"] {
+      flex: 1; min-width: 230px; padding: 14px 20px;
+      border: 1.5px solid var(--border); border-radius: 11px;
+      font-size: 0.95rem; font-family: inherit; outline: none;
+      transition: border-color 0.2s; color: var(--text);
+    }
+    .signup-form input[type="email"]:focus {
+      border-color: var(--brand);
+      box-shadow: 0 0 0 3px var(--brand-glow);
+    }
+    .signup-form button {
+      background: var(--brand); color: #fff; border: none;
+      padding: 14px 30px; border-radius: 11px; font-size: 0.95rem;
+      font-weight: 800; font-family: inherit; cursor: pointer;
+      transition: background 0.2s, transform 0.15s; white-space: nowrap;
+    }
+    .signup-form button:hover { background: var(--brand-dark); transform: translateY(-1px); }
+    .signup-form button:active { transform: translateY(0); }
+    .form-note { font-size: 0.78rem; color: var(--muted); }
+    .success-msg { display: none; color: #059669; font-weight: 700; font-size: 0.95rem; margin-top: 12px; }
+
+    /* ── SOCIAL PROOF ── */
+    .social-proof {
+      display: flex; align-items: center; justify-content: center;
+      gap: 10px; margin-top: 40px; font-size: 0.85rem; color: var(--muted);
+    }
+    .avatars { display: flex; }
+    .avatar {
+      width: 32px; height: 32px; border-radius: 50%; border: 2px solid #fff;
+      margin-left: -8px;
+      background: linear-gradient(135deg, #a78bfa, #6C47FF);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700; color: #fff;
+    }
+    .avatar:first-child { margin-left: 0; }
+    .stars { color: #FBBF24; letter-spacing: -1px; }
+
+    /* ── SECTION SHELL ── */
+    .section { padding: 90px 24px; max-width: 1060px; margin: 0 auto; }
+    .section-label {
+      text-align: center; font-size: 0.78rem; font-weight: 800;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--brand); margin-bottom: 12px;
+    }
+    h2 {
+      text-align: center; font-size: clamp(1.7rem, 3.8vw, 2.6rem);
+      font-weight: 900; letter-spacing: -1px; margin-bottom: 16px;
+    }
+    .section-sub {
+      text-align: center; color: var(--muted);
+      max-width: 520px; margin: 0 auto 60px; line-height: 1.7;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 24px; }
+    .step {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 18px; padding: 34px 30px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .step:hover { box-shadow: 0 10px 36px var(--brand-glow); transform: translateY(-4px); }
+    .step-num {
+      width: 42px; height: 42px; background: var(--brand-light);
+      color: var(--brand); border-radius: 11px; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 1.15rem; font-weight: 900; margin-bottom: 20px;
+    }
+    .step h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: 8px; }
+    .step p { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── CORE FEATURES ── */
+    .features-bg { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px,1fr)); gap: 20px; }
+    .feature {
+      display: flex; gap: 16px; align-items: flex-start;
+      padding: 26px; background: #fff;
+      border: 1px solid var(--border); border-radius: 15px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .feature:hover { box-shadow: 0 6px 24px var(--brand-glow); transform: translateY(-2px); }
+    .feature-icon {
+      width: 46px; height: 46px; background: var(--brand-light);
+      border-radius: 11px; display: flex; align-items: center;
+      justify-content: center; font-size: 1.35rem; flex-shrink: 0;
+    }
+    .feature-text h3 { font-size: 0.95rem; font-weight: 800; margin-bottom: 5px; }
+    .feature-text p { font-size: 0.84rem; color: var(--muted); line-height: 1.55; }
+
+    /* ── INSPIRATION BOARD SECTION ── */
+    .inspo-section {
+      background: #0D0B1E;
+      padding: 100px 24px;
+      overflow: hidden;
+    }
+    .inspo-inner { max-width: 1060px; margin: 0 auto; }
+    .inspo-section .section-label { color: #a78bfa; }
+    .inspo-section h2 { color: #fff; }
+    .inspo-section .section-sub { color: rgba(255,255,255,0.55); }
+
+    .inspo-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    /* Board mockup */
+    .board-mockup {
+      background: #161228;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+    }
+    .board-topbar {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 16px;
+    }
+    .board-topbar-dot { width: 11px; height: 11px; border-radius: 50%; }
+    .board-search {
+      flex: 1; background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px; padding: 7px 14px;
+      font-size: 0.78rem; color: rgba(255,255,255,0.4);
+      font-family: inherit;
+    }
+    .board-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 10px;
+    }
+    .board-card {
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .board-card:hover { transform: scale(1.03); }
+    .board-card-thumb {
+      width: 100%; aspect-ratio: 9/14;
+      display: flex; align-items: flex-end;
+      padding: 10px 8px;
+      position: relative;
+    }
+    .board-card-thumb::after {
+      content:'';
+      position: absolute; inset:0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+    }
+    .bc1 { background: linear-gradient(135deg,#FF6B6B,#FF8E53); }
+    .bc2 { background: linear-gradient(135deg,#4ECDC4,#44A08D); }
+    .bc3 { background: linear-gradient(135deg,#A18CD1,#FBC2EB); }
+    .bc4 { background: linear-gradient(135deg,#F093FB,#F5576C); }
+    .bc5 { background: linear-gradient(135deg,#4FACFE,#00F2FE); }
+    .bc6 { background: linear-gradient(135deg,#43E97B,#38F9D7); }
+    .bc7 { background: linear-gradient(135deg,#FA709A,#FEE140); }
+    .bc8 { background: linear-gradient(135deg,#667EEA,#764BA2); }
+    .bc9 { background: linear-gradient(135deg,#F7971E,#FFD200); }
+    .board-card-label {
+      position: relative; z-index: 1;
+      font-size: 0.62rem; font-weight: 700;
+      color: #fff; line-height: 1.3;
+    }
+    .board-card-stat {
+      position: absolute; top: 7px; right: 7px; z-index: 1;
+      background: rgba(0,0,0,0.55);
+      border-radius: 6px; padding: 3px 7px;
+      font-size: 0.58rem; font-weight: 700; color: #fff;
+    }
+    .board-card-save {
+      position: absolute; top: 7px; left: 7px; z-index: 1;
+      width: 22px; height: 22px;
+      background: rgba(108,71,255,0.85);
+      border-radius: 6px; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.65rem;
+    }
+    .board-tabs {
+      display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap;
+    }
+    .board-tab {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px; padding: 4px 12px;
+      font-size: 0.7rem; color: rgba(255,255,255,0.6);
+      font-family: inherit; cursor: pointer; transition: all 0.2s;
+    }
+    .board-tab.active {
+      background: var(--brand); border-color: var(--brand);
+      color: #fff;
+    }
+
+    /* Inspo text side */
+    .inspo-text { color: #fff; }
+    .inspo-text h3 { font-size: 1.9rem; font-weight: 900; letter-spacing: -0.8px; margin-bottom: 18px; line-height: 1.2; }
+    .inspo-text p { color: rgba(255,255,255,0.6); font-size: 1rem; line-height: 1.75; margin-bottom: 28px; }
+    .inspo-pills { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
+    .inspo-pill {
+      display: flex; align-items: center; gap: 7px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 100px; padding: 7px 16px;
+      font-size: 0.82rem; font-weight: 600; color: rgba(255,255,255,0.8);
+    }
+    .inspo-pill span { font-size: 1rem; }
+
+    /* ── 4-STEP FLOW ── */
+    .four-steps { display: flex; flex-direction: column; gap: 0; max-width: 700px; margin: 0 auto; }
+    .four-step { display: flex; gap: 0; align-items: stretch; }
+    .four-step-num {
+      width: 48px; height: 48px; min-width: 48px;
+      background: var(--brand); color: #fff;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; font-weight: 900; z-index: 1;
+      box-shadow: 0 0 0 4px var(--brand-light);
+      margin-top: 4px;
+    }
+    .four-step-line {
+      width: 2px; background: linear-gradient(to bottom, var(--brand), var(--brand-light));
+      margin: 0 23px; min-height: 40px; flex-shrink: 0;
+    }
+    .four-step-line.last { background: transparent; }
+    .four-step-body {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; padding: 26px 28px; flex: 1;
+      margin-bottom: 16px; margin-left: 16px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .four-step-body:hover { box-shadow: 0 8px 28px var(--brand-glow); transform: translateY(-2px); }
+    .four-step-icon { font-size: 1.6rem; margin-bottom: 10px; }
+    .four-step-body h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: 8px; color: var(--text); }
+    .four-step-body p { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── BOARD ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes commentPop {
+      0%   { opacity: 0; transform: scale(0.7) translateY(6px); }
+      60%  { opacity: 1; transform: scale(1.05) translateY(-2px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    @keyframes dmSlide {
+      0%   { opacity: 0; transform: translateX(20px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes arrowPulse {
+      0%,100% { transform: translateX(0); opacity: 0.7; }
+      50%      { transform: translateX(4px); opacity: 1; }
+    }
+    @keyframes floatCard {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-6px); }
+    }
+    .board-card:nth-child(1) { animation: fadeUp 0.5s ease 0.1s both; }
+    .board-card:nth-child(2) { animation: fadeUp 0.5s ease 0.2s both; }
+    .board-card:nth-child(3) { animation: fadeUp 0.5s ease 0.3s both; }
+    .board-card:nth-child(4) { animation: fadeUp 0.5s ease 0.4s both; }
+    .board-card:nth-child(5) { animation: fadeUp 0.5s ease 0.5s both; }
+    .board-card:nth-child(6) { animation: fadeUp 0.5s ease 0.6s both; }
+    .board-card:nth-child(7) { animation: fadeUp 0.5s ease 0.35s both; }
+    .board-card:nth-child(8) { animation: fadeUp 0.5s ease 0.45s both; }
+    .board-card:nth-child(9) { animation: fadeUp 0.5s ease 0.55s both; }
+
+    /* Comment-to-DM live demo */
+    .cdm-demo {
+      margin-top: 20px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      padding: 16px;
+    }
+    .cdm-demo-label {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 1.2px;
+      text-transform: uppercase; color: #a78bfa; margin-bottom: 12px;
+    }
+    .cdm-row {
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    }
+    .cdm-comment {
+      background: rgba(255,255,255,0.08); border-radius: 10px;
+      padding: 8px 12px; font-size: 0.75rem; color: #fff;
+      animation: commentPop 0.6s ease 1s both;
+    }
+    .cdm-comment strong { color: #a78bfa; }
+    .cdm-arrow {
+      color: #a78bfa; font-size: 1rem;
+      animation: arrowPulse 1.2s ease infinite;
+    }
+    .cdm-dm {
+      background: linear-gradient(135deg, var(--brand), #9B72FF);
+      border-radius: 10px; padding: 8px 12px;
+      font-size: 0.75rem; color: #fff;
+      animation: dmSlide 0.6s ease 1.8s both;
+    }
+    .cdm-dm strong { opacity: 0.8; font-size: 0.68rem; display: block; margin-bottom: 2px; }
+
+    /* ── UNIQUE FEATURES (DIFFERENTIATORS) ── */
+    .diff-section { padding: 100px 24px; max-width: 1060px; margin: 0 auto; }
+    .diff-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+      gap: 24px;
+      margin-top: 60px;
+    }
+    .diff-card {
+      border: 1px solid var(--border);
+      border-radius: 20px; padding: 32px 28px;
+      position: relative; overflow: hidden;
+      transition: box-shadow 0.2s, transform 0.2s;
+      background: #fff;
+    }
+    .diff-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--brand), #9B72FF);
+      border-radius: 20px 20px 0 0;
+    }
+    .diff-card:hover { box-shadow: 0 12px 40px var(--brand-glow); transform: translateY(-4px); }
+    .diff-tag {
+      display: inline-block;
+      background: var(--brand-light); color: var(--brand);
+      font-size: 0.68rem; font-weight: 800; letter-spacing: 1px;
+      text-transform: uppercase; padding: 4px 10px;
+      border-radius: 6px; margin-bottom: 16px;
+    }
+    .diff-card h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 10px; }
+    .diff-card p { font-size: 0.87rem; color: var(--muted); line-height: 1.65; }
+    .diff-icon { font-size: 2rem; margin-bottom: 14px; display: block; }
+
+    /* ── CTA ── */
+    .cta-section { text-align: center; padding: 100px 24px; }
+    .cta-box {
+      background: linear-gradient(135deg, #5B32EE 0%, #9B72FF 100%);
+      border-radius: 28px; padding: 72px 36px;
+      max-width: 700px; margin: 0 auto; color: #fff;
+      box-shadow: 0 24px 80px rgba(108,71,255,0.3);
+    }
+    .cta-box h2 { color: #fff; margin-bottom: 14px; }
+    .cta-box p { color: rgba(255,255,255,0.78); margin-bottom: 40px; font-size: 1.05rem; }
+    .cta-box .signup-form input[type="email"] {
+      background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.3); color: #fff;
+    }
+    .cta-box .signup-form input[type="email"]::placeholder { color: rgba(255,255,255,0.55); }
+    .cta-box .signup-form input[type="email"]:focus {
+      border-color: rgba(255,255,255,0.7);
+      box-shadow: 0 0 0 3px rgba(255,255,255,0.15);
+    }
+    .cta-box .signup-form button { background: #fff; color: var(--brand); }
+    .cta-box .signup-form button:hover { background: #EDE9FF; }
+    .cta-box .form-note { color: rgba(255,255,255,0.55); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 30px 24px; text-align: center;
+      font-size: 0.82rem; color: var(--muted);
+    }
+    footer span { color: var(--brand); font-weight: 700; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 720px) {
+      .inspo-layout { grid-template-columns: 1fr; }
+      .inspo-text { order: -1; }
+      .board-grid { grid-template-columns: repeat(3,1fr); }
+    }
+    @media (max-width: 500px) {
+      .signup-form { flex-direction: column; }
+      .signup-form input[type="email"], .signup-form button { width: 100%; }
+      h1 { letter-spacing: -1px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">Nexflo</div>
+    <a href="#early-access" class="nav-cta">Get Early Access</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="badge"><span class="dot"></span> Coming Soon</div>
+    <h1>The Creator Growth<br /><span>Operating System</span></h1>
+    <p class="hero-sub">
+      Find viral trends and formats that work in your niche, then use our comment to DM feature to automate engagement, go viral and build a real audience faster.
+    </p>
+    <form class="signup-form" id="hero-form">
+      <input type="email" name="email" placeholder="Enter your email address" required />
+      <button type="submit">Notify Me</button>
+    </form>
+    <p class="form-note">No spam. Just your early access invite when we launch.</p>
+    <p class="success-msg" id="hero-success">You're on the list! We'll be in touch soon. 🎉</p>
+    <div class="social-proof">
+      <div class="avatars">
+        <div class="avatar">JK</div>
+        <div class="avatar">AM</div>
+        <div class="avatar">RS</div>
+        <div class="avatar">TL</div>
+      </div>
+      <div class="stars">★★★★★</div>
+      <span>Join 200+ creators on the waitlist</span>
+    </div>
+  </section>
+
+  <!-- 4-STEP FLOW -->
+  <section class="section steps-section">
+    <p class="section-label">How Nexflo Works</p>
+    <h2>Four steps to growing faster than everyone else</h2>
+    <p class="section-sub">No complicated setup. No guesswork. Just a simple system that works while you create.</p>
+    <div class="four-steps">
+      <div class="four-step">
+        <div class="four-step-num">1</div>
+        <div class="four-step-line"></div>
+        <div class="four-step-body">
+          <div class="four-step-icon">🔍</div>
+          <h3>Search Viral Trends in Your Niche</h3>
+          <p>Nexflo shows you exactly what is blowing up in your niche right now — so you always know what to post next.</p>
+        </div>
+      </div>
+      <div class="four-step">
+        <div class="four-step-num">2</div>
+        <div class="four-step-line"></div>
+        <div class="four-step-body">
+          <div class="four-step-icon">🪝</div>
+          <h3>Copy Hooks and Formats That Have Proven to Work</h3>
+          <p>Save the styles, hooks, and formats that already went viral. Post your version with your own spin on it.</p>
+        </div>
+      </div>
+      <div class="four-step">
+        <div class="four-step-num">3</div>
+        <div class="four-step-line"></div>
+        <div class="four-step-body">
+          <div class="four-step-icon">💬</div>
+          <h3>Use Comment to DM to Automate Engagement and Sales</h3>
+          <p>Set a keyword. When someone comments it, Nexflo instantly sends them a DM with your freebie or offer — building your email list and closing sales automatically.</p>
+        </div>
+      </div>
+      <div class="four-step">
+        <div class="four-step-num">4</div>
+        <div class="four-step-line last"></div>
+        <div class="four-step-body">
+          <div class="four-step-icon">🏆</div>
+          <h3>Build Your Brand and Make Money</h3>
+          <p>More engagement pushes your content to more people. More people means a bigger audience, a bigger email list, and real income from your content.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIRAL INSPIRATION BOARD -->
+  <div class="inspo-section">
+    <div class="inspo-inner">
+      <p class="section-label">Viral Inspiration Board</p>
+      <h2 style="color:#fff; margin-bottom:14px;">Your personal viral video inspiration board</h2>
+      <p class="section-sub" style="margin-bottom:60px;">Nexflo shows you exactly what is blowing up in your niche right now. Save the ideas you love, post your version, and let Nexflo handle every DM the moment people start commenting.</p>
+
+      <div class="inspo-layout">
+
+        <!-- BOARD MOCKUP -->
+        <div class="board-mockup">
+          <div class="board-topbar">
+            <div class="board-topbar-dot" style="background:#FF5F57;"></div>
+            <div class="board-topbar-dot" style="background:#FEBC2E;"></div>
+            <div class="board-topbar-dot" style="background:#28C840;"></div>
+            <div class="board-search">Search your niche — fitness, finance, beauty…</div>
+          </div>
+          <div class="board-tabs">
+            <button class="board-tab active">🔥 Trending</button>
+            <button class="board-tab">📌 Saved</button>
+            <button class="board-tab">🎵 Audios</button>
+            <button class="board-tab">🪝 Hooks</button>
+          </div>
+          <div class="board-grid">
+            <div class="board-card">
+              <div class="board-card-thumb bc1">
+                <div class="board-card-save">📌</div>
+                <div class="board-card-stat">2.4M</div>
+                <div class="board-card-label">Morning routine hook</div>
+              </div>
+            </div>
+            <div class="board-card">
+              <div class="board-card-thumb bc2">
+                <div class="board-card-save">📌</div>
+                <div class="board-card-stat">1.1M</div>
+                <div class="board-card-label">Finance tip format</div>
+              </div>
+            </div>
+            <div class="board-card">
+              <div class="board-card-thumb bc3">
+                <div class="board-card-save">📌</div>
+                <div class="board-card-stat">890K</div>
+                <div class="board-card-label">Outfit transition</div>
+              </div>
+            </div>
+            <div class="board-card">
+              <div class="board-card-thumb bc4">
+                <div class="board-card-save">📌</div>
+                <div class="board-card-stat">3.2M</div>
+                <div class="board-card-label">POV story open</div>
+              </div>
+            </div>
+            <div class="board-card">
+              <div class="board-card-thumb bc5">
+                <div class="board-card-save">📌</div>
+                <div class="board-card-stat">670K</div>
+                <div class="board-card-label">Tutorial walkthrough</div>
+              </div>
+            </div>
+            <div class="board-card">
+              <div class="board-card-thumb bc6">
+                <div class="board-card-save">📌</div>
+                <div class="board-card-stat">1.8M</div>
+                <div class="board-card-label">Before & after reveal</div>
+              </div>
+            </div>
+            <div class="board-card">
+              <div class="board-card-thumb bc7">
+                <div class="board-card-save">📌</div>
+                <div class="board-card-stat">540K</div>
+                <div class="board-card-label">Day in my life vlog</div>
+              </div>
+            </div>
+            <div class="board-card">
+              <div class="board-card-thumb bc8">
+                <div class="board-card-save">📌</div>
+                <div class="board-card-stat">2.1M</div>
+                <div class="board-card-label">Mindset quote reel</div>
+              </div>
+            </div>
+            <div class="board-card">
+              <div class="board-card-thumb bc9">
+                <div class="board-card-save">📌</div>
+                <div class="board-card-stat">990K</div>
+                <div class="board-card-label">Product unboxing</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TEXT SIDE -->
+        <div class="inspo-text">
+          <h3>Stop scrolling for hours.<br />Find what works in seconds.</h3>
+          <p>Think of it like Pinterest but built for video creators. Nexflo finds viral videos in your niche, shows you why each one blew up, and lets you save your favourites to your own board. Post your version — then Nexflo automatically handles every DM that comes in.</p>
+          <div class="inspo-pills">
+            <div class="inspo-pill"><span>🔥</span> See what is trending right now</div>
+            <div class="inspo-pill"><span>📌</span> Save ideas to your board</div>
+            <div class="inspo-pill"><span>🪝</span> See why each video went viral</div>
+            <div class="inspo-pill"><span>🔔</span> Get notified before trends peak</div>
+            <div class="inspo-pill"><span>⚡</span> Attach DM automation in one click</div>
+            <div class="inspo-pill"><span>🎵</span> Discover trending sounds</div>
+          </div>
+          <p style="font-size:0.88rem; color:rgba(255,255,255,0.4); margin-bottom: 20px;">
+            Find it — Get inspired — Post your version — Nexflo handles the rest
+          </p>
+
+          <!-- LIVE COMMENT TO DM DEMO -->
+          <div class="cdm-demo">
+            <div class="cdm-demo-label">Comment to DM — Live</div>
+            <div class="cdm-row">
+              <div class="cdm-comment"><strong>@sarah_creates</strong> commented: "FREE"</div>
+              <div class="cdm-arrow">→</div>
+              <div class="cdm-dm"><strong>Nexflo sent a DM instantly</strong> "Hey! Here's your free guide 👇 nexflo.link/guide"</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <section class="cta-section" id="early-access">
+    <div class="cta-box">
+      <h2>Be first when we launch</h2>
+      <p>Drop your email and we will let you know the moment Nexflo is ready. Early members get priority access and the best pricing we will ever offer.</p>
+      <form class="signup-form" id="cta-form">
+        <input type="email" name="email" placeholder="your@email.com" required />
+        <button type="submit">Get Early Access</button>
+      </form>
+      <p class="form-note">Free to join. No card required.</p>
+      <p class="success-msg" id="cta-success" style="color:#c4b5fd;">You're on the list! We'll be in touch soon. 🎉</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 <span>Nexflo</span>. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function handleForm(formId, successId) {
+      const form = document.getElementById(formId);
+      if (!form) return;
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const btn = form.querySelector('button');
+        const email = form.querySelector('input[type="email"]').value;
+        btn.textContent = 'Sending…';
+        btn.disabled = true;
+        try {
+          const res = await fetch('https://formspree.io/f/xeedgrdb', {
+            method: 'POST',
+            headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: email })
+          });
+          if (res.ok) {
+            form.style.display = 'none';
+            document.getElementById(successId).style.display = 'block';
+          } else {
+            btn.textContent = 'Try again';
+            btn.disabled = false;
+          }
+        } catch {
+          btn.textContent = 'Try again';
+          btn.disabled = false;
+        }
+      });
+    }
+
+    handleForm('hero-form', 'hero-success');
+    handleForm('cta-form', 'cta-success');
+
+    // Board tab interaction
+    document.querySelectorAll('.board-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.board-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
