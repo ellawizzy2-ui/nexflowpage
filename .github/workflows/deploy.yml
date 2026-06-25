@@ -3,6 +3,7 @@ name: Deploy Nexflo Landing Page
 on:
   push:
     branches: [ main ]
+  workflow_dispatch:
 
 permissions:
   contents: read
